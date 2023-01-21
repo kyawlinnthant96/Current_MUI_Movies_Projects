@@ -10,3 +10,4 @@ export { default as Sidebar } from "./Sidebar/Sidebar";
 export { default as RelatedCard } from "./RelatedCards/RelatedCards";
 export { default as Navbar } from "./Navbar/Navbar";
 export { default as MovieList } from "./Movielist/MovieList";
+export { default as Layout } from "./Layout/Layout";

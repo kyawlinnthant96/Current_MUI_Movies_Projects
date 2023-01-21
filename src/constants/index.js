@@ -8,3 +8,20 @@ export const BLUE_LOGO =
   "https://fontmeme.com/permalink/210930/8531c658a743debe1e1aa1a2fc82006e.png";
 export const RED_LOGO =
   "https://fontmeme.com/permalink/210930/6854ae5c7f76597cf8680e48a2c8a50a.png";
+
+export const NAV_LINKS = {
+  categories: [
+    {
+      name: "popular",
+      href: "popular"
+    },
+    {
+      name: "top-rated",
+      href: "top-rated"
+    },
+    {
+      name: "upcoming",
+      href: "upcoming"
+    }
+  ],
+}

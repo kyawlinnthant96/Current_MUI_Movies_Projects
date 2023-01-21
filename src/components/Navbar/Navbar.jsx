@@ -1,29 +1,39 @@
-import React from "react";
-import { AppBar, Box, Divider, Stack, Typography } from "@mui/material";
-
-import imgLogo from "@assets/img-logo.png";
+import {
+  AppBar,
+  Button,
+  Stack,
+  TextField,
+  Typography,
+  InputAdornment,
+} from "@mui/material";
+import { Search } from "@mui/icons-material";
 
 const Navbar = () => {
   return (
-    <Box>
-      <AppBar>app bar</AppBar>
-      <AppBar
-        color="default"
-        position="fixed"
-        sx={{ left: 0, height: "100vh", width: "fit-content" }}
+    <AppBar position="sticky">
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="space-between"
+        paddingX={2}
+        paddingY={3}
       >
-        <Box>
-          <Stack divider={<Divider />}>
-            <Box paddingX={4} paddingY={3}>
-              <img src={imgLogo} width={160} />
-            </Box>
-            <Box paddingX={2} paddingY={3}>category</Box>
-            <Box paddingX={2} paddingY={3}>genres</Box>
-          </Stack>
-        </Box>
-      </AppBar>
-    </Box>
+        <Typography>darkmode switch</Typography>
+        <TextField
+          type="search"
+          variant="standard"
+          placeholder="search"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Search />
+              </InputAdornment>
+            ),
+          }}
+        />
+        <Button variant="primary">LOGIN BTN</Button>
+      </Stack>
+    </AppBar>
   );
 };
-
 export default Navbar;
