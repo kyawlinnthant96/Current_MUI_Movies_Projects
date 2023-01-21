@@ -2,7 +2,13 @@ import React from "react";
 // styles
 import "./app.module.css";
 import { CssBaseline, createTheme, styled, useTheme } from "@mui/material";
-import { Actors, Movie, MovieInformation, Movies, Navbar, Profile } from ".";
+import {
+  Actors,
+  Movie,
+  MovieInformation,
+  Movies,
+  Profile,
+} from ".";
 import { Route, Routes } from "react-router-dom";
 
 const Main = styled("div")(({ theme }) => ({
@@ -21,15 +27,14 @@ const App = () => {
   return (
     <div className="app">
       <CssBaseline />
-      <Navbar />
-      <Main>
-        <Routes>
-          <Route path="/" element={<Movies />} />
-          <Route path="/movies/:id" element={<MovieInformation />} />
-          <Route path="/actors/:id" element={<Actors />} />
-          <Route path="/profile/:id" element={<Profile />} />
-        </Routes>
-      </Main>
+      {/* <Main> */}
+      <Routes>
+        <Route index element={<Movies />} />
+        <Route path="movies/:id" element={<MovieInformation />} />
+        <Route path="actors/:id" element={<Actors />} />
+        <Route path="profile/:id" element={<Profile />} />
+      </Routes>
+      {/* </Main> */}
     </div>
   );
 };
