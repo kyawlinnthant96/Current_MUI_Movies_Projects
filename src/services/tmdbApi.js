@@ -59,6 +59,25 @@ const searchMovie = async ({ searchQuery, page }) => {
   return response;
 };
 
+const getMoviesByGenere = ({ genreIdOrCategoryName, page }) => {
+  let response = instance.get(
+    `discover/movie?with_genres=${genreIdOrCategoryName}&page=${page}&api_key=${API_KEY}`
+  );
+  return response;
+};
+const getMoviesByCat = ({ genreIdOrCategoryName, page }) => {
+  let response = instance.get(
+    `discover/movie?with_genres=${genreIdOrCategoryName}&page=${page}&api_key=${API_KEY}`
+  );
+  return response;
+};
+
+/*  if (genereIdOrCategory && typeof genereIdOrCategory === "string") {
+    return (response = instance.get(
+      `movie/${genreIdOrCategoryName}?page=${page}&api_key=${API_KEY}`
+    ));
+  } */
+
 export {
   getBannerData,
   getTopRated,
@@ -68,4 +87,6 @@ export {
   getMovieByActor,
   getActor,
   searchMovie,
+  getMoviesByCat,
+  getMoviesByGenere,
 };

@@ -2,13 +2,7 @@ import React from "react";
 // styles
 import "./app.module.css";
 import { CssBaseline, createTheme, styled, useTheme } from "@mui/material";
-import {
-  Actors,
-  Movie,
-  MovieInformation,
-  Movies,
-  Profile,
-} from ".";
+import { Actors, Movie, MovieInformation, Movies, Profile } from ".";
 import { Route, Routes } from "react-router-dom";
 
 const Main = styled("div")(({ theme }) => ({

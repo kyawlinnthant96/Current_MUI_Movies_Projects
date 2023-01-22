@@ -1,11 +1,31 @@
 import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
-import { AppBar, Box, Divider, Stack, Typography } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Divider,
+  ListItemIcon,
+  ListItemText,
+  ListSubheader,
+  Stack,
+  Typography,
+  ListItem,
+} from "@mui/material";
 import { BLUE_LOGO, NAV_LINKS } from "@constants";
+import { useDispatch } from "react-redux";
+
+import genreIcons from "../../assets/genres";
+import { selectGenreOrCategory } from "../../features/currentGenreOrCategory";
+
+const categories = [
+  { label: "Popular", value: "popular" },
+  { label: "Top Rated", value: "top_rated" },
+  { label: "Upcoming", value: "upcoming" },
+];
 
 const Sidebar = () => {
-  const navLinksKeys = Object.keys(NAV_LINKS);
-  console.log(navLinksKeys);
+  const dispatch = useDispatch();
+
   return (
     <Box>
       <AppBar
@@ -20,23 +40,26 @@ const Sidebar = () => {
             </Box>
 
             <Box>
-              {navLinksKeys.map((navLinkKey) => (
-                <Fragment key={navLinkKey}>
-                  <Typography variant="body2">{navLinkKey}</Typography>
-                  {NAV_LINKS[navLinkKey].map((navLink) => (
-                    <NavLink to={navLink.href} key={navLink.href}>
-                      <Box paddingX={2} paddingY={1}>
-                        <Typography
-                          variant="navLink"
-                          component="span"
-                          textTransform="capitalize"
-                        >
-                          {navLink.name}
-                        </Typography>
-                      </Box>
-                    </NavLink>
-                  ))}
-                </Fragment>
+              <ListSubheader>Categories</ListSubheader>
+              {categories.map((category) => (
+                <NavLink
+                  onClick={() =>
+                    dispatch(selectGenreOrCategory(category.value))
+                  }
+                  key={category.value}
+                >
+                  <ListItem>
+                    <ListItemIcon>
+                      <img
+                        className="catImage"
+                        src={genreIcons[category.label.toLowerCase()]}
+                        alt="category logo"
+                        height={30}
+                      />
+                    </ListItemIcon>
+                    <ListItemText primary={category.label} />
+                  </ListItem>
+                </NavLink>
               ))}
             </Box>
           </Stack>
