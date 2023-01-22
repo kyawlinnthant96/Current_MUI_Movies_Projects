@@ -15,6 +15,8 @@ import { BLUE_LOGO, NAV_LINKS } from "@constants";
 import { useDispatch } from "react-redux";
 
 import genreIcons from "../../assets/genres";
+
+//redux
 import { selectGenreOrCategory } from "../../features/currentGenreOrCategory";
 
 const categories = [
@@ -38,7 +40,6 @@ const Sidebar = () => {
             <Box paddingX={4} paddingY={3}>
               <img src={BLUE_LOGO} width={160} />
             </Box>
-
             <Box>
               <ListSubheader>Categories</ListSubheader>
               {categories.map((category) => (
