@@ -13,15 +13,15 @@ export const NAV_LINKS = {
   categories: [
     {
       name: "popular",
-      href: "popular"
+      href: "popular",
     },
     {
       name: "top-rated",
-      href: "top-rated"
+      href: "top-rated",
     },
     {
       name: "upcoming",
-      href: "upcoming"
-    }
+      href: "upcoming",
+    },
   ],
-}
+};
