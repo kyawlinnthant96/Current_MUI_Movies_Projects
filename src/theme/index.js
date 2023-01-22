@@ -4,11 +4,11 @@ export const theme = createTheme({
   typography: {
     "navLink": {
       fontSize: "1rem",
-      color: "#1E1EA1"
+      color: "#1e1e1e"
     },
-    "active-navLink": {
+    "activeNavLink": {
       fontSize: "1rem",
-      color: "#00F"
-    }
+      color: "1010E3"
+    },
   }
 })
