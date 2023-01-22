@@ -5,7 +5,7 @@ import { BLUE_LOGO, NAV_LINKS } from "@constants";
 
 const Sidebar = () => {
   const navLinksKeys = Object.keys(NAV_LINKS);
-  console.log(navLinksKeys);
+
   return (
     <Box>
       <AppBar
@@ -25,15 +25,18 @@ const Sidebar = () => {
                   <Typography variant="body2">{navLinkKey}</Typography>
                   {NAV_LINKS[navLinkKey].map((navLink) => (
                     <NavLink to={navLink.href} key={navLink.href}>
-                      <Box paddingX={2} paddingY={1}>
-                        <Typography
-                          variant="navLink"
-                          component="span"
-                          textTransform="capitalize"
-                        >
-                          {navLink.name}
-                        </Typography>
-                      </Box>
+                      {({ isActive }) => (
+                        <Box paddingX={2} paddingY={1}>
+                          <Typography
+                            variant={isActive ? "activeNavLink" : "navLink"}
+                            component="span"
+                            fontWeight={400}
+                            textTransform="capitalize"
+                          >
+                            {navLink.name}
+                          </Typography>
+                        </Box>
+                      )}
                     </NavLink>
                   ))}
                 </Fragment>
