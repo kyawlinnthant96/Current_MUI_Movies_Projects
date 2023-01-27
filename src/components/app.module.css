@@ -1,0 +1,7 @@
+.app {
+  display: flex;
+  height: 100%;
+}
+.app-main--toolbar {
+  height: 70px !important;
+}

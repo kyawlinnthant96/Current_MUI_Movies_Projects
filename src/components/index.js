@@ -1,0 +1,13 @@
+export { default as Actors } from "./Actors/Actors";
+export { default as FeatureMovies } from "./FeatureMovie/FeatureMovies";
+export { default as Movie } from "./Movie/Movie";
+export { default as MovieInformation } from "./MovieInformation/MovieInformation";
+export { default as Movies } from "./Movies/Movies";
+export { default as Pagination } from "./Pagination/Pagination";
+export { default as Profile } from "./Profile/Profile";
+export { default as Search } from "./Search/Search";
+export { default as Sidebar } from "./Sidebar/Sidebar";
+export { default as RelatedCard } from "./RelatedCards/RelatedCards";
+export { default as Navbar } from "./Navbar/Navbar";
+export { default as MovieList } from "./Movielist/MovieList";
+export { default as Layout } from "./Layout/Layout";
