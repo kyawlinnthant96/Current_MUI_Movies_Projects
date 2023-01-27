@@ -29,13 +29,13 @@ const Navbar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const MenuButton = styled("div")(({ theme }) => ({
+  const MenuButton = styled(IconButton)(({ theme }) => ({
     [theme.breakpoints.up("sm")]: {
       width: drawerWidth,
       flexShrink: 0,
     },
   }));
-  const ToolBarWrapper = styled("div")(({ theme }) => ({
+  const ToolBarWrapper = styled(Toolbar)(({ theme }) => ({
     height: "80px",
     display: "flex",
     justifyContent: "space-between",
@@ -50,36 +50,26 @@ const Navbar = () => {
     <>
       <AppBar position="fixed">
         <ToolBarWrapper>
-          <Toolbar>
-            {isMobile && (
-              <MenuButton>
-                <IconButton
-                  color="inherit"
-                  edge="start"
-                  style={{ outline: "none" }}
-                  onClick={() =>
-                    setMobileOpen((prevMobileOpen) => !prevMobileOpen)
-                  }
-                >
-                  <Menu />
-                </IconButton>
-              </MenuButton>
-            )}
-            <IconButton sx={{ ml: 1 }}>
-              {theme.palette.mode === "dark" ? (
-                <Brightness7 />
-              ) : (
-                <Brightness4 />
-              )}
-            </IconButton>
-            {!isMobile && <Search />}
-            <div>
-              <Button color="inherit">
-                Login &nbsp; <AccountCircle />
-              </Button>
-            </div>
-            {isMobile && <Search />}
-          </Toolbar>
+          {isMobile && (
+            <MenuButton
+              color="inherit"
+              edge="start"
+              style={{ outline: "none" }}
+              onClick={() => setMobileOpen((prevMobileOpen) => !prevMobileOpen)}
+            >
+              <Menu />
+            </MenuButton>
+          )}
+          <IconButton sx={{ ml: 1 }}>
+            {theme.palette.mode === "dark" ? <Brightness7 /> : <Brightness4 />}
+          </IconButton>
+          {!isMobile && <Search />}
+          <div>
+            <Button color="inherit">
+              Login &nbsp; <AccountCircle />
+            </Button>
+          </div>
+          {isMobile && <Search />}
         </ToolBarWrapper>
       </AppBar>
       <div>

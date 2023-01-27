@@ -21,7 +21,8 @@ const Search = () => {
       width: "100%",
     },
   }));
-  const InputWrapper = styled("div")(({ theme }) => ({
+
+  const InputWrapper = styled("input")(({ theme }) => ({
     color: theme.palette.mode === "light" && "black",
     filter: theme.palette.mode === "light" && "invert(1)",
     [theme.breakpoints.down("sm")]: {
@@ -40,23 +41,20 @@ const Search = () => {
 
   return (
     <SearchContainer>
-      <div>
-        <TextField
-          onKeyDown={handleKeyDown}
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          variant="standard"
-          InputProps={{
-            startAdornment: (
-              <InputWrapper>
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              </InputWrapper>
-            ),
-          }}
-        />
-      </div>
+      <TextField
+        onKeyDown={handleKeyDown}
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        variant="standard"
+        InputProps={{
+          sx: InputWrapper,
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
+      />
     </SearchContainer>
   );
 };
