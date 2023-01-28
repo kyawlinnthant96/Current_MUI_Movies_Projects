@@ -1,36 +1,39 @@
 import React from "react";
-import "./style.css";
-import { useSelector } from "react-redux";
-import { useTheme } from "@emotion/react";
-import { positions, styled } from "@mui/system";
-import { Box, Card, CardMedia } from "@mui/material";
+import "./FeatureComponents.js";
+
 import { Link } from "react-router-dom";
 import { TMDB_IMAGE_PATH } from "@constants/index";
+import {
+  FeatureCard,
+  FeatureCardContainer,
+  FeatureCardContent,
+  FeatureMedia,
+} from "./FeatureComponents";
+import { Box, Typography } from "@mui/material";
 
 const FeatureMovies = ({ movie }) => {
-  const theme = useTheme();
-  const cardContent = styled("div")(({ theme }) => ({}));
-
-  const cardRoot = {
-    position: "relative",
-  };
   if (!movie) return null;
   return (
-    <Box
-      component={Link}
-      to={`movies/${movie.id}`}
-      className="feature-container"
-    >
-      <Card className="feature-card" classes={{ root: cardRoot }}>
-        <CardMedia
+    <FeatureCardContainer component={Link} to={`movies/${movie?.id}`}>
+      <FeatureCard>
+        <FeatureMedia
           media="picture"
-          alt={movie?.title}
+          alt="movies"
           image={`${TMDB_IMAGE_PATH}/original/${movie?.backdrop_path}`}
           title={movie?.title}
-          className="feature-card--media"
         />
-      </Card>
-    </Box>
+        <Box padding="20px">
+          <FeatureCardContent>
+            <Typography>Hello</Typography>
+            <Typography>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio qui
+              sapiente quaerat. Neque, voluptatum quos ex aut error atque
+              perferendis.
+            </Typography>
+          </FeatureCardContent>
+        </Box>
+      </FeatureCard>
+    </FeatureCardContainer>
   );
 };
 

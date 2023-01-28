@@ -47,7 +47,6 @@ const Search = () => {
         onChange={(e) => setQuery(e.target.value)}
         variant="standard"
         InputProps={{
-          sx: InputWrapper,
           startAdornment: (
             <InputAdornment position="start">
               <SearchIcon />

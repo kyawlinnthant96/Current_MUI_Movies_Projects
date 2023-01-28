@@ -58,12 +58,25 @@ const searchMovie = async ({ searchQuery, page }) => {
   );
   return response;
 };
-
-const getMoviesByGenere = ({ genreIdOrCategoryName, page }) => {
-  let response = instance.get(
-    `discover/movie?with_genres=${genreIdOrCategoryName}&page=${page}&api_key=${API_KEY}`
-  );
+const getGenre = () => {
+  const response = instance.get(`genre/movie/list?api_key=${API_KEY}`);
   return response;
+};
+const getMoviesByGenere = ({ genreIdOrCategoryName, page }) => {
+  if (typeof genreIdOrCategoryName === "string") {
+    let response = instance.get(
+      `discover/movie?with_genres=${genreIdOrCategoryName}&page=${page}&api_key=${API_KEY}`
+    );
+
+    return response;
+  }
+  if (typeof genreIdOrCategoryName === "number") {
+    let response = instance.get(
+      `discover/movie?with_genres=${genreIdOrCategoryName}&page=${page}&api_key=${API_KEY}`
+    );
+
+    return response;
+  }
 };
 const getMoviesByCat = ({ genreIdOrCategoryName, page }) => {
   let response = instance.get(
@@ -71,12 +84,6 @@ const getMoviesByCat = ({ genreIdOrCategoryName, page }) => {
   );
   return response;
 };
-
-/*  if (genereIdOrCategory && typeof genereIdOrCategory === "string") {
-    return (response = instance.get(
-      `movie/${genreIdOrCategoryName}?page=${page}&api_key=${API_KEY}`
-    ));
-  } */
 
 export {
   getBannerData,
@@ -89,4 +96,5 @@ export {
   searchMovie,
   getMoviesByCat,
   getMoviesByGenere,
+  getGenre,
 };

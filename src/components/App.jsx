@@ -5,7 +5,7 @@ import { CssBaseline, createTheme, styled, useTheme } from "@mui/material";
 import { Actors, Movie, MovieInformation, Movies, Navbar, Profile } from ".";
 import { Route, Routes } from "react-router-dom";
 
-const Main = styled("div")(({ theme }) => ({
+const Main = styled("main")(({ theme }) => ({
   flexGrow: 1,
   padding: "2em",
   [theme.breakpoints.down("md")]: {
@@ -19,16 +19,18 @@ const Main = styled("div")(({ theme }) => ({
 
 const App = () => {
   return (
-    <div className="app">
+    <div style={{ display: "flex", height: "100%" }}>
       <CssBaseline />
       <Navbar />
       <Main>
-        <Routes>
-          <Route index element={<Movies />} />
-          <Route path="movies/:id" element={<MovieInformation />} />
-          <Route path="actors/:id" element={<Actors />} />
-          <Route path="profile/:id" element={<Profile />} />
-        </Routes>
+        <div style={{ height: "70px" }}>
+          <Routes>
+            <Route index element={<Movies />} />
+            <Route path="movies/:id" element={<MovieInformation />} />
+            <Route path="actors/:id" element={<Actors />} />
+            <Route path="profile/:id" element={<Profile />} />
+          </Routes>
+        </div>
       </Main>
     </div>
   );

@@ -39,11 +39,11 @@ const Movies = () => {
 
   // console.log(MoviesQuery?.data?.data.results);
   return (
-    <>
+    <div>
       <FeatureMovies movie={MoviesQuery?.data?.data.results[0]} />
       <MovieList movies={MoviesQuery?.data?.data?.results} />
       <Pagination />
-    </>
+    </div>
   );
 };
 
