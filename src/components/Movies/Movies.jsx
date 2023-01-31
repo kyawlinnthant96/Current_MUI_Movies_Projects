@@ -21,6 +21,13 @@ const Movies = () => {
     queryFn: () => getMoviesByGenere({ genreIdOrCategoryName, page }),
   });
 
+  const handlePrevClick = () => {
+    setPage((prev) => prev - 1);
+  };
+  const handleNextClick = () => {
+    setPage((prev) => prev + 1);
+  };
+
   //** loading state */
   if (MoviesQuery.isLoading) {
     return (
@@ -42,7 +49,11 @@ const Movies = () => {
     <div>
       <FeatureMovies movie={MoviesQuery?.data?.data.results[0]} />
       <MovieList movies={MoviesQuery?.data?.data?.results} excludeFirst />
-      <Pagination />
+      <Pagination
+        onPrevClick={handlePrevClick}
+        onNextClick={handleNextClick}
+        currentPage={page}
+      />
     </div>
   );
 };

@@ -10,5 +10,6 @@ export const theme = createTheme({
       fontSize: "1rem",
       color: "1010E3"
     },
-  }
+  },
+ 
 })
