@@ -41,7 +41,7 @@ const Movies = () => {
   return (
     <div>
       <FeatureMovies movie={MoviesQuery?.data?.data.results[0]} />
-      <MovieList movies={MoviesQuery?.data?.data?.results} />
+      <MovieList movies={MoviesQuery?.data?.data?.results} excludeFirst />
       <Pagination />
     </div>
   );

@@ -24,12 +24,10 @@ const FeatureMovies = ({ movie }) => {
         />
         <Box padding="20px">
           <FeatureCardContent>
-            <Typography>Hello</Typography>
-            <Typography>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio qui
-              sapiente quaerat. Neque, voluptatum quos ex aut error atque
-              perferendis.
+            <Typography variant="h5" gutterBottom>
+              {movie?.title}
             </Typography>
+            <Typography>{movie?.overview}</Typography>
           </FeatureCardContent>
         </Box>
       </FeatureCard>

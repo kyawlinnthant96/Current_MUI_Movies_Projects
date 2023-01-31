@@ -23,7 +23,6 @@ import "./styles.css";
 //redux
 import { selectGenreOrCategory } from "../../features/currentGenreOrCategory";
 import { RED_LOGO } from "@constants/index";
-import { Hook } from "./hooks";
 import { useQuery } from "react-query";
 import { getGenre } from "../../services/tmdbApi";
 
@@ -48,7 +47,7 @@ const Sidebar = () => {
   const imageMode = {
     filter: theme.palette.mode === "dark" ? "invert(1)" : "",
   };
-  console.log(GenreData);
+  // console.log(GenreData);
   return (
     <>
       <Link to="/" className="imageLink">
@@ -109,44 +108,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-{
-  /* <Box>
-      <AppBar
-        color="default"
-        position="static"
-        sx={{ left: 0, height: "100vh", width: "fit-content" }}
-      >
-        <Box>
-          <Stack divider={<Divider />}>
-            <Box paddingX={4} paddingY={3}>
-              <img src={BLUE_LOGO} width={160} />
-            </Box>
-            <Box>
-              <ListSubheader>Categories</ListSubheader>
-              {categories.map((category) => (
-                <NavLink
-                  onClick={() =>
-                    dispatch(selectGenreOrCategory(category.value))
-                  }
-                  key={category.value}
-                >
-                  <ListItem>
-                    <ListItemIcon>
-                      <img
-                        className="catImage"
-                        src={genreIcons[category.label.toLowerCase()]}
-                        alt="category logo"
-                        height={30}
-                      />
-                    </ListItemIcon>
-                    <ListItemText primary={category.label} />
-                  </ListItem>
-                </NavLink>
-              ))}
-            </Box>
-          </Stack>
-        </Box>
-      </AppBar>
-    </Box> */
-}

@@ -46,6 +46,13 @@ const Navbar = () => {
     },
   }));
 
+  const NavWrapper = styled("nav")(({ theme }) => ({
+    [theme.breakpoints.up("sm")]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  }));
+
   return (
     <>
       <AppBar position="fixed">
@@ -73,7 +80,7 @@ const Navbar = () => {
         </ToolBarWrapper>
       </AppBar>
       <div>
-        <nav>
+        <NavWrapper>
           {isMobile ? (
             <Drawer
               variant="temporary"
@@ -90,7 +97,7 @@ const Navbar = () => {
               <Sidebar setMobileOpen={setMobileOpen} />
             </Drawer>
           )}
-        </nav>
+        </NavWrapper>
       </div>
     </>
   );

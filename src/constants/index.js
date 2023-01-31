@@ -25,3 +25,5 @@ export const NAV_LINKS = {
     },
   ],
 };
+
+export const NUMBER_OF_MOVIES = 12;

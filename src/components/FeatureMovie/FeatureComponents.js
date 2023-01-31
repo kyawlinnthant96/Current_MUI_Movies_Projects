@@ -6,6 +6,7 @@ const FeatureCardContainer = styled(Box)(() => ({
   justifyContent: "center",
   height: "490px",
   textDecoration: "none",
+  marginTop: "3.5rem",
 }));
 
 const FeatureCard = styled(Card)(() => ({
