@@ -1,0 +1,18 @@
+.listImage {
+  border-radius: 20px;
+  height: 300px;
+  margin-bottom: 10px;
+}
+.listImage:hover {
+  transform: scale(1.05);
+}
+.movieTitle {
+  color: black;
+  text-overflow: ellipsis;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 10;
+  margin-bottom: 0;
+  text-align: center;
+}

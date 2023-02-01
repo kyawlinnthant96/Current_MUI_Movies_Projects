@@ -1,32 +1,12 @@
-import React, { useState, useSyncExternalStore } from "react";
+import { FeatureMovies, MovieList, Pagination } from "..";
+import { Box, CircularProgress, Typography } from "@mui/material";
+import hooks from "./hooks";
 
 // style
 import "./style.css";
 
-import { FeatureMovies, MovieList, Pagination } from "..";
-import Layout from "@components/Layout/Layout";
-import { getMoviesByGenere } from "../../services/tmdbApi";
-import { useQuery } from "react-query";
-import { useSelector } from "react-redux";
-import { Box, CircularProgress, Typography } from "@mui/material";
-
 const Movies = () => {
-  const [page, setPage] = useState(1);
-  const { genreIdOrCategoryName } = useSelector(
-    (state) => state.currentGenreOrCategory
-  );
-
-  const MoviesQuery = useQuery({
-    queryKey: ["movies", { genreIdOrCategoryName, page }],
-    queryFn: () => getMoviesByGenere({ genreIdOrCategoryName, page }),
-  });
-
-  const handlePrevClick = () => {
-    setPage((prev) => prev - 1);
-  };
-  const handleNextClick = () => {
-    setPage((prev) => prev + 1);
-  };
+  const [page, setPage, MoviesQuery] = hooks();
 
   //** loading state */
   if (MoviesQuery.isLoading) {
@@ -44,14 +24,14 @@ const Movies = () => {
     );
   }
 
-  // console.log(MoviesQuery?.data?.data.results);
+  // console.log(MoviesQuery?.data?.data);
   return (
-    <div>
+    <div style={{ margin: "4rem 0" }}>
       <FeatureMovies movie={MoviesQuery?.data?.data.results[0]} />
       <MovieList movies={MoviesQuery?.data?.data?.results} excludeFirst />
       <Pagination
-        onPrevClick={handlePrevClick}
-        onNextClick={handleNextClick}
+        setPage={setPage}
+        totalPage={MoviesQuery?.data?.data?.total_pages}
         currentPage={page}
       />
     </div>

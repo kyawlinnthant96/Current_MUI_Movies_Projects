@@ -48,6 +48,10 @@ const Sidebar = () => {
     filter: theme.palette.mode === "dark" ? "invert(1)" : "",
   };
   // console.log(GenreData);
+  const clickOnCategoryOrGenre = (value) => {
+    // console.log(value);
+    dispatch(selectGenreOrCategory(value));
+  };
   return (
     <>
       <Link to="/" className="imageLink">
@@ -63,7 +67,7 @@ const Sidebar = () => {
         {categories.map((category) => (
           <Link key={category.value} style={linkStyle}>
             <ListItem
-              onClick={() => dispatch(selectGenreOrCategory(category.value))}
+              onClick={() => clickOnCategoryOrGenre(category?.value)}
               button
             >
               <ListItemIcon>
@@ -89,7 +93,7 @@ const Sidebar = () => {
         ) : (
           GenreData?.data?.data?.genres?.map(({ name, id }) => (
             <Link key={id} style={linkStyle} to="/">
-              <ListItem onClick={() => dispatch(selectGenreOrCategory(id))}>
+              <ListItem onClick={() => clickOnCategoryOrGenre(id)}>
                 <ListItemIcon>
                   <img
                     style={imageMode}
